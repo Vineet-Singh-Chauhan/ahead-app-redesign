@@ -9,7 +9,7 @@ const Navbar = () => {
         <img
           alt="ahead-logo"
           src="/images/logo.webp"
-          className="h-14 rounded-xl aspect-square	"
+          className="h-12 rounded-xl aspect-square	"
         />
       </span>
       <span className="flex justify-evenly items-center font-medium">
