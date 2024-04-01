@@ -1,6 +1,6 @@
 const BestEQSection = () => {
   return (
-    <div className="flex max-w-screen-lg  mx-auto my-20 gap-10">
+    <section className="flex px-5 flex-col md:flex-row max-w-screen-lg  mx-auto my-40 gap-10">
       <h2 className="font-semibold text-3xl flex-1">
         Be the best you
         <br /> with EQ
@@ -12,7 +12,7 @@ const BestEQSection = () => {
         Additionally, not understanding those of others stops you from being
         parent, friend you can be.
       </div>
-    </div>
+    </section>
   );
 };
 

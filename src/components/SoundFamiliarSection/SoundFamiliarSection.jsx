@@ -1,6 +1,7 @@
 import { cards } from "./CarouselData.js";
 import { useRef } from "react";
 import useGsapHook from "../../hooks/useGsapHook.js";
+
 const SoundFamiliarSection = () => {
   const section = useRef();
   const { useGSAP, gsap } = useGsapHook();
@@ -10,8 +11,6 @@ const SoundFamiliarSection = () => {
       let tl = gsap.timeline({
         scrollTrigger: {
           trigger: "#heading",
-          // start: "top center",
-          toggleActions: "restart none none none",
         },
       });
       tl.fromTo(
@@ -31,7 +30,7 @@ const SoundFamiliarSection = () => {
           { x: 0 },
           {
             x: "-300%",
-            duration: 1.5,
+            duration: 1,
           },
           "<"
         )
@@ -41,7 +40,7 @@ const SoundFamiliarSection = () => {
           {
             x: "0",
             y: 0,
-            duration: 1.5,
+            duration: 1,
           },
           "<<"
         );
@@ -49,21 +48,25 @@ const SoundFamiliarSection = () => {
 
     { scope: section }
   );
+
   return (
-    <section ref={section} className="relative">
-      <h2 id="heading" className="text-5xl font-bold ps-10 heading">
+    <section ref={section} className="relative overflow-hidden">
+      <h2
+        id="heading"
+        className=" font-bold ps-10 heading text-3xl lg:text-4xl	xl:text-5xl"
+      >
         Does this sound familiar...
       </h2>
       <img
         id="ghost"
-        src="/images/ghost_1.png"
-        className="h-14 inline-block -rotate-45 ms-5 absolute right-1/3 top-0"
+        src="/images/ghost_red.svg"
+        className="h-14  -rotate-12 ms-5 absolute right-1/3 top-0 hidden md:inline-block"
       />
       <div className="flex overflow-scroll no-scrollbar gap-8 py-5 my-10 [&>*:nth-child(2n+1)]:bg-[#d8f2ff] [&>*:nth-child(2n)]:bg-[#ffefd5] [&>*:nth-child(3)]:bg-[#6341ee]  [&>div>p]:text-gray-500 [&>*:nth-child(3)>p]:text-white [&>*:nth-child(3)]:text-white [&>*:nth-child(3)]:-rotate-6">
         {cards.map((item) => (
           <div
             key={item.id}
-            className={`  familiar-carousel bg-[${item.bgColor}] rounded-3xl p-6 w-[320px] shrink-0	`}
+            className={`  familiar-carousel  rounded-3xl p-6 w-[320px] shrink-0	`}
           >
             <p className="text-2xl ">{item.emoji}</p>
             <h2 className="font-bold font-sm my-4">{item.title}</h2>

@@ -2,7 +2,7 @@ import AppStoreButton from "../AppStoreButton/AppStoreButton";
 
 const Footer = () => {
   return (
-    <footer className=" min-h-[30rem] flex flex-col  items-center text-center mt-10 ">
+    <footer className=" min-h-[30rem] flex flex-col  items-center text-center mt-10 px-5 ">
       <hr className="bg-gray-100 boeder-0 h-[0.1rem] w-full mb-8" />
       <img
         alt="ahead-logo"

@@ -1,9 +1,33 @@
 import { jobs } from "./jobs";
+import { useRef } from "react";
+import useGsapHook from "../../hooks/useGsapHook.js";
 
 const OpenVacancies = () => {
+  const section = useRef();
+  const { useGSAP, gsap } = useGsapHook();
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        ".section_heading",
+        { opacity: 0, scale: 0.8, x: "-100%" },
+        {
+          opacity: 1,
+          scale: 1,
+          x: 0,
+          duration: 1,
+          ease: "back(0.5)",
+          scrollTrigger: section.current,
+        }
+      );
+    },
+
+    { scope: section }
+  );
   return (
-    <>
-      <h2 className="text-4xl font-bold mt-20 ps-10 ">Open vacancies</h2>
+    <section ref={section} className="overflow-hidden">
+      <h2 className="section_heading text-4xl font-bold mt-20 ps-10 ">
+        Open vacancies
+      </h2>
       <div className="flex overflow-scroll no-scrollbar gap-8 py-5 my-5 min-h-80  ps-10 relative ">
         {jobs.map((job) => (
           <div
@@ -22,7 +46,7 @@ const OpenVacancies = () => {
           </div>
         ))}
       </div>
-    </>
+    </section>
   );
 };
 

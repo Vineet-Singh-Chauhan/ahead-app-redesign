@@ -1,12 +1,37 @@
 import { listData } from "./listData";
+import { useRef } from "react";
+import useGsapHook from "../../hooks/useGsapHook.js";
 
 const SelfImprovementSection = () => {
+  const section = useRef();
+  const { useGSAP, gsap } = useGsapHook();
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        ".section_heading",
+        { opacity: 0, scale: 0.8, x: "-100%" },
+        {
+          opacity: 1,
+          scale: 1,
+          x: 0,
+          duration: 1,
+          ease: "back(0.5)",
+          scrollTrigger: section.current,
+        }
+      );
+    },
+
+    { scope: section }
+  );
   return (
-    <div className=" min-h-[650px] flex justify-center flex-col p-10 mt-20">
-      <p className="font-medium text-md ps-1">
+    <section
+      ref={section}
+      className=" min-h-[650px] flex justify-center flex-col p-10 px-2 md:px-10 mt-20 overflow-hidden"
+    >
+      <p className="font-medium text-md ps-1 section_heading">
         Wrong with self-improvement & how we&apos;re fixing it.
       </p>
-      <h1 className="text-5xl font-bold leading-tight tracking-wide mb-20	">
+      <h1 className="mt-2 font-bold leading-tight tracking-wide mb-20 section_heading text-3xl lg:text-4xl	xl:text-5xl	">
         Self-improvement. Ugh.
       </h1>
       <div className="h-[30rem] overflow-y-scroll no-scrollbar">
@@ -23,7 +48,7 @@ const SelfImprovementSection = () => {
           })}
         </ul>
       </div>
-    </div>
+    </section>
   );
 };
 

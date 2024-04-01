@@ -1,14 +1,56 @@
 import { carouselCards } from "./data";
+import { useRef } from "react";
+import useGsapHook from "../../hooks/useGsapHook.js";
 
 const WorkWithUs = () => {
+  const section = useRef();
+  const { useGSAP, gsap } = useGsapHook();
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        ".section_heading_left",
+        { opacity: 0, scale: 0.8, x: "-100%" },
+        {
+          opacity: 1,
+          scale: 1,
+          x: 0,
+          duration: 1,
+          ease: "back(0.5)",
+          scrollTrigger: section.current,
+        }
+      );
+      gsap.fromTo(
+        ".section_heading_right",
+        { opacity: 0, scale: 0.8, x: "100%" },
+        {
+          opacity: 1,
+          scale: 1,
+          x: 0,
+          duration: 1,
+          ease: "back(0.5)",
+          scrollTrigger: section.current,
+        }
+      );
+    },
+
+    { scope: section }
+  );
+
   return (
-    <div className="bg-[#eeebfe] rounded-3xl h-[50rem] mx-5 2xl:mx-0  p-10 pt-20 flex flex-col custom-scrollbar">
+    <section
+      ref={section}
+      className="bg-[#eeebfe] rounded-3xl h-[50rem] mx-5 2xl:mx-0  p-10 pt-20 flex flex-col custom-scrollbar overflow-hidden"
+    >
       <div className="flex justify-between ">
-        <h1 className="text-5xl font-bold">Work with us</h1>
-        <h1 className="text-5xl font-semibold text-[#613eed]">ahead</h1>
+        <h1 className="section_heading_left font-bold text-3xl lg:text-4xl	xl:text-5xl	">
+          Work with us
+        </h1>
+        <h1 className="section_heading_right  font-semibold text-[#613eed] text-3xl lg:text-4xl	xl:text-5xl	hidden md:inline-block">
+          ahead
+        </h1>
       </div>
-      <div className="flex gap-5 mt-10 flex-1 overflow-y-scroll custom-scrollbar ">
-        <div className=" rounded-xl flex-1 mb-20 sticky top-0  ">
+      <div className="flex flex-col md:flex-row gap-5 mt-10 flex-1 overflow-y-scroll custom-scrollbar ">
+        <div className=" rounded-xl flex-1 mb-20 relative md:sticky top-0  ">
           <div className="bg-white  rounded-3xl flex-1 ">
             <div className="p-10">
               <img src="/images/ghost_1.png" className="h-10 " />
@@ -42,7 +84,7 @@ const WorkWithUs = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
