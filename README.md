@@ -1,8 +1,9 @@
-# React + Vite
+# Ahead app redesign concept!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Taras Migulko made a redesign and animation for the Ahead app (https://dribbble.com/shots/19807069-Ahead-app-redesign-concept). I coded the same design.
 
-Currently, two official plugins are available:
+## Tech used:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Reactjs
+- Tailwind CSS
+- GSAP (for animations)
