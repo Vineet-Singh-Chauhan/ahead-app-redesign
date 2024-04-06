@@ -132,7 +132,7 @@ const OpenVacancies = ({ isAdmin }) => {
         {jobs.map((job) => (
           <div
             key={job.id}
-            style={isAdmin ? { height: "300px" } : ""}
+            style={isAdmin ? { height: "300px" } : {}}
             className="  bg-[#fefbec] rounded-3xl p-6 w-[360px]  h-[200px] hover:h-[250px] hover:bg-[#ffefd7] transition-all ease-linear duration-200 shrink-0 relative overflow-hidden group "
           >
             <p className="text-lg font-bold ">{job.title}</p>
