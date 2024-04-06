@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     element: <App isAdmin={false} />,
   },
   {
-    path: "/admin",
+    path: "admin",
     element: <App isAdmin={true} />,
   },
 ]);
