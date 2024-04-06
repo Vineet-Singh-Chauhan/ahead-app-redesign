@@ -9,12 +9,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <App isAdmin={false} />,
-  },
-  {
     path: "admin",
     element: <App isAdmin={true} />,
+  },
+  {
+    path: "/",
+    element: <App isAdmin={false} />,
   },
 ]);
 
