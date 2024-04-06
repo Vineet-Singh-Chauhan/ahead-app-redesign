@@ -3,7 +3,6 @@ import BestEQSection from "./components/BestEQSection/BestEQSection";
 import EQBeatsSection from "./components/EQBeatsSection/EQBeatsSection";
 import Footer from "./components/Footer/Footer";
 import GetStarted from "./components/GetStarted/GetStarted";
-import TestWindow from "./components/GetStarted/TestWindow";
 import HeroSection from "./components/HeroSection/HeroSection";
 import MeetTheAppSection from "./components/MeetTheAppSection/MeetTheAppSection";
 import Navbar from "./components/Navbar/Navbar";
