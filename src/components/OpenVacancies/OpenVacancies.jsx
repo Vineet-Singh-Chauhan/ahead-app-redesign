@@ -60,7 +60,7 @@ const OpenVacancies = ({ isAdmin }) => {
     if (!modalData) {
       // new element to be added
       data.id = Math.random() * 100;
-      setJobs((e) => [...e, data]);
+      setJobs((e) => [data, ...e]);
       setShow(false);
       return;
     }
