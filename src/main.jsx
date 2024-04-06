@@ -5,11 +5,16 @@ import "./index.css";
 
 // react router
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+// import AdminPanel from "./components/AdminPanel/AdminPanel.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <App isAdmin={false} />,
+  },
+  {
+    path: "/admin",
+    element: <App isAdmin={true} />,
   },
 ]);
 

@@ -1,8 +1,11 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import useGsapHook from "../../hooks/useGsapHook.js";
+import { Modal, Box } from "@mui/material";
+import TestWindow from "./TestWindow.jsx";
 
 const GetStarted = () => {
   const section = useRef();
+  const [show, setShow] = useState(false);
   const { useGSAP, gsap } = useGsapHook();
   useGSAP(
     () => {
@@ -21,6 +24,19 @@ const GetStarted = () => {
 
     { scope: section }
   );
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    bgcolor: "background.paper",
+    boxShadow: 24,
+    p: 4,
+  };
+
+  const handleClose = () => setShow(false);
+
   return (
     <section
       ref={section}
@@ -37,12 +53,20 @@ const GetStarted = () => {
       <p className="font-medium text-secondaryFontColor text-lg my-8">
         with love,
       </p>
-      <button className="grow_animate rounded-full bg-black text-white py-3 px-4 text-sm">
+      <button
+        onClick={() => setShow(true)}
+        className="grow_animate rounded-full bg-black text-white py-3 px-4 text-sm"
+      >
         Start a test
       </button>
       <p className=" text-gray-600 text-xs mt-4 font-medium">
         Take only 5 minutes
       </p>
+      <Modal open={show} onClose={handleClose}>
+        <Box style={style}>
+          <TestWindow close={handleClose} />
+        </Box>
+      </Modal>
     </section>
   );
 };

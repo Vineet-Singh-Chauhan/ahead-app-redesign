@@ -1,4 +1,4 @@
-const jobs = [
+const filedata = [
   {
     id: "1",
     title: "Senior Full-Stack Engineer",
@@ -27,4 +27,4 @@ const jobs = [
     ],
   },
 ];
-export { jobs };
+export { filedata };

@@ -3,6 +3,7 @@ import BestEQSection from "./components/BestEQSection/BestEQSection";
 import EQBeatsSection from "./components/EQBeatsSection/EQBeatsSection";
 import Footer from "./components/Footer/Footer";
 import GetStarted from "./components/GetStarted/GetStarted";
+import TestWindow from "./components/GetStarted/TestWindow";
 import HeroSection from "./components/HeroSection/HeroSection";
 import MeetTheAppSection from "./components/MeetTheAppSection/MeetTheAppSection";
 import Navbar from "./components/Navbar/Navbar";
@@ -12,7 +13,7 @@ import SoundFamiliarSection from "./components/SoundFamiliarSection/SoundFamilia
 import WhatOthersThink from "./components/WhatOthersThink/WhatOthersThink";
 import WorkWithUs from "./components/WorkWithUs/WorkWithUs";
 
-function App() {
+function App({ isAdmin }) {
   return (
     <main className="max-w-[1200px] mx-auto ">
       <Navbar />
@@ -25,7 +26,7 @@ function App() {
       <WhatOthersThink />
       <GetStarted />
       <WorkWithUs />
-      <OpenVacancies />
+      <OpenVacancies isAdmin={isAdmin} />
       <Footer />
     </main>
   );
